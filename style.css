@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Rubik&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+    /* background-image: url('img/coding.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    height: 1000px; */
+}
+
+p {
+    color: blueviolet;
+}
+
+h1{
+    text-transform: capitalize;
+}
+
+a{
+    border:1px solid #3b3a3a;
+    text-decoration: none;
+    margin: 10px;
+    padding: 5px 20px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+/* mouse over link */
+a:hover {
+    color: white;
+    background-color: teal;
+}
+
+img{
+    width: 64px;
+    float: right;
+    margin: 10px;
+}
+
+address{
+    border:1px solid brown;
+    border-radius: 4px;
+    padding: 5px;
+    color: white;
+    background-color: rosybrown;
+}
+
+.merah{
+    color: brown;
+}
+
+#text{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.parrent {
+	background-color: #e8963f;
+	padding: 10px;
+    height: 700px;
+}
+
+.box1 {
+	background-color: #7b93b5;
+	padding: 5px;
+    position: absolute;
+}
+
+.box2 {
+	background-color: #94d48c;
+	padding: 5px;
+    position: absolute;
+}
+
+.box3 {
+	background-color: #dec990;
+	padding: 5px;
+    position: absolute;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid black;
+}
+
+th{
+    padding: 10px;
+    border: 1px solid black;
+    border-bottom: 2px solid black;
+}
+
+td{
+    padding: 10px;
+    border: 1px solid black;
+}
+
+input {
+	width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid grey;
+}
+
+input:focus{
+    background-color:#eee;
+}
+
+fieldset{
+    border: 1px solid grey;
+}
+
+button{
+    padding: 5px 15px;
+    margin: 5px;
+    border-radius: 4px;
+    border: none;
+    color: white;
+}
+
+button:hover{
+    background-color: black;
+    color: white;
+}
+
+button.hijau{
+    background-color: teal;
+}
+
+button.hijau:hover, button.kuning:hover{
+    background-color: black;
+    color: white;
+}
+
+button.kuning{
+    background-color:rgb(209, 209, 59);
+}
