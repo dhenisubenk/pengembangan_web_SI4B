@@ -5,54 +5,101 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        body{
+            background-color: rgb(245, 246, 246);
+        }
+    </style>
 </head>
 <body>
-    <h1>Profil</h1>
-    <a href="index.html">Back</a>
-    
-    <table>
-        <tr>
-            <th>NIM</th>
-            <th>NAMA</th>
-            <th>JURUSAN</th>
-            <th>ALAMAT</th>
-        </tr>
-        <tr>
-            <td>190203041</td>
-            <td>Jamaludin</td>
-            <td rowspan="2">Sistem Informasi</td>
-            <td rowspan="4">Galunggung</td>
-        </tr>
-        <tr>
-            <td>190203043</td>
-            <td>Jamaludin</td>
-        </tr>
-        <tr>
-            <td>190203045</td>
-            <td>Jamaludin</td>
-            <td>Teknik Informatika</td>
-        </tr>
-        <tr>
-            <td>190203046</td>
-            <td>Jamaludin</td>
-            <td>Manajemen Informatika</td>
-        </tr>
-    </table>
-
-
-    Unordered List
-    <ul>
-        <li>Nasi Goreng</li>
-        <li>Nasi Padang</li>
-        <li>Nasi Ikan</li>
-        <li>Nasi Lainnya</li>
-    </ul>
-    Ordered List 
-    <ol start="5" reversed>
-        <li>Teh Manis</li>
-        <li>Teh Tawar</li>
-        <li>Es Nutrisari</li>
-    </ol>
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-xl-12">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+                    <div class="container">
+                      <a class="navbar-brand" href="#">STIKOMAMBON</a>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                          <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                          <a class="nav-link active" href="profil.html">Profil</a>
+                          <a class="nav-link" href="kontak.html">Kontak</a>
+                        </div>
+                      </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        Unordered List
+                        <ul>
+                            <li>Nasi Goreng</li>
+                            <li>Nasi Padang</li>
+                            <li>Nasi Ikan</li>
+                            <li>Nasi Lainnya</li>
+                        </ul>
+                        Ordered List 
+                        <ol start="5" reversed>
+                            <li>Teh Manis</li>
+                            <li>Teh Tawar</li>
+                            <li>Es Nutrisari</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>Profil</h1>
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>NIM</th>
+                                    <th>NAMA</th>
+                                    <th>JURUSAN</th>
+                                    <th>ALAMAT</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>190203041</td>
+                                    <td>Jamaludin</td>
+                                    <td>Sistem Informasi</td>
+                                    <td>Galunggung</td>
+                                </tr>
+                                <tr>
+                                    <td>190203043</td>
+                                    <td>Jamaludin</td>
+                                    <td>Sistem Informasi</td>
+                                    <td>Galunggung</td>
+                                </tr>
+                                <tr>
+                                    <td>190203045</td>
+                                    <td>Jamaludin</td>
+                                    <td>Teknik Informatika</td>
+                                    <td>Galunggung</td>
+                                </tr>
+                                <tr>
+                                    <td>190203046</td>
+                                    <td>Jamaludin</td>
+                                    <td>Manajemen Informatika</td>
+                                    <td>Galunggung</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
