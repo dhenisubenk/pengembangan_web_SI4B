@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kontak</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            body{
+                background-color: rgb(245, 246, 246);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid p-0">
+            <div class="row">
+                <div class="col-xl-12">
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+                        <div class="container">
+                          <a class="navbar-brand" href="#">STIKOMAMBON</a>
+                          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                              <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                              <a class="nav-link" href="profil.html">Profil</a>
+                              <a class="nav-link active" href="kontak.html">Kontak</a>
+                            </div>
+                          </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <fieldset>
+                                <div class="form-group">
+                                    <label for="">Nama</label>
+                                    <input type="text" id="nama" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Jurusan</label>
+                                    <select id="jurusan" class="form-control">
+                                        <option>Sistem Informasi</option>
+                                        <option>Teknik Informatika</option>
+                                    </select>
+                                </div>
+                                <div class="form-group mt-2">
+                                    <button class="btn btn-primary" onclick="cetak()">Cetak</button>
+                                </div>
+                            </fieldset>
+                            <p class="mt-4" id="hasil"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+            function cetak()
+            {
+                var nama = document.getElementById("nama").value;
+                var jurusan = document.getElementById("jurusan").value;
+                document.getElementById("hasil").innerHTML = "<b>Nama : </b>" + nama + "<br><b>Jurusan : </b>" + jurusan;
+            }
+            
+            var uts = 78;
+            var uas = 90;
+            var tugas = 88;
+            var na = uts * 0.3 + uas * 0.3 + tugas * 0.4;
+            var nama = "Kamarudin"; //string
+            var jurusan; //undefined
+            var grade = getGrade(na);
+            var status = getStatus(grade);
+            // var mahasiswa = ["Kamarudin","Teknik Infomatika","Ambon"];
+
+            var mahasiswa = {
+                nama_depan : "Kamarudin",
+                nama_belakang : "Maimun",
+                jurusan : "Sistem Informasi",
+                alamat : "Ambon",
+                mk : "Pengembangan Web",
+                uts : 90,
+                uas : 80,
+                tugas :85,
+                nilaiAkhir : function(){
+                    return this.uts * 0.3 + this.uas * 0.3 + this.tugas * 0.4;
+                },
+                namaLengkap : function(){
+                    return this.nama_depan + " " + this.nama_belakang;
+                }
+            }
+
+    
+            //inner HTML 
+            //document.getElementById("hasil").innerHTML = "Halo " + nama;
+            //document write
+            //document.write(nama);
+            //alert
+            //alert(na + " : " + grade + " : " + status);
+            //console
+            //console.log("Halo " + nama + " Nilai Anda " + na);
+
+            //FOR
+            // nilai awal, kondisi, statement, inc/dec
+            // for( i=5; i>=1; i--)
+            // {
+            //     console.log(i);
+            // }
+
+            //while
+            // var i = 1;
+            // while(i <= 7){
+            //     console.log(i);
+            //     i++;
+            // }
+
+            // do while
+            // var i = 5;
+            // do{
+            //     console.log(i);
+            //     i++;
+            // }
+            // while(i < 10);
+            
+            var d = new Date();
+            var tanggal = d.getDate();
+            var bulan = d.getMonth() + 1;
+            var tahun = d.getFullYear();
+
+            ///alert(tanggal+"/"+bulan+"/"+tahun);
+            
+            function getGrade(na)
+            {
+                var grade = "";
+
+                if(na >= 80)
+                {
+                    grade = "A";
+                }
+                else if (na >= 70)
+                {
+                    grade = "B";
+                }
+                else if (na >= 60)
+                {
+                    grade = "C";
+                }
+                else if (na >= 50)
+                {
+                    grade = "D";
+                }
+                else
+                {
+                    grade = "E";
+                }
+
+                return grade;
+            }
+
+            function getStatus(grade){
+                var status = "";
+                switch (grade) {
+                    case 'A':
+                    case 'B':
+                    case 'C':
+                        status = "LULUS";
+                        break;
+                    case 'D':
+                        status = "PERBAIKAN";
+                        break;
+                    case 'E':
+                        status = "TIDAK LULUS";
+                        break;
+                    default:
+                        status = "-";
+                        break;
+                }
+
+                return status;
+            }
+
+
+        </script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
