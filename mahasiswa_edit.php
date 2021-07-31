@@ -1,3 +1,30 @@
+<?php  
+    require_once 'config/koneksi.php';
+
+    if (isset($_GET['nim'])) 
+    {
+        $nim = $_GET['nim'];
+        $sql = mysqli_query($con, "SELECT * FROM mahasiswa WHERE nim = '$nim'");
+        $jml = mysqli_num_rows($sql);   // mengembalikan jml row/baris dari hasil queri
+
+        if($jml > 0){
+            $r = mysqli_fetch_array($sql);
+        }else{
+             echo "<script>
+                alert('Data tidak ditemukan');
+                window.location.href = 'mahasiswa.php';
+            </script>";
+        }
+        
+    }
+    else
+    {
+        echo "<script>
+                window.location.href = 'mahasiswa.php';
+            </script>";
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -39,83 +66,45 @@
                 <div class="col-lg-12 mx-auto">
                     <div class="card">
                         <div class="card-header">
-                            Master Mahasiswa
+                            <strong>Edit Data Mahasiswa</strong>
                         </div>
                         <div class="card-body">
-                            <form action="simpan_mahasiswa.php" method="POST">
+                            <form action="update_mahasiswa.php" method="POST">
                                 <div class="form-group">
                                     <label for="">NIM</label>
-                                    <input type="text" name="nim" class="form-control" required>
+                                    <input type="text" name="nim" value="<?= $r['nim']; ?>" class="form-control" readonly="" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Nama</label>
-                                    <input type="text" name="nama" class="form-control" required>
+                                    <input type="text" name="nama" value="<?= $r['nama']; ?>" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Jurusan</label>
                                     <select name="jurusan" class="form-control">
-                                        <option>Sistem Informasi</option>
-                                        <option>Teknik Informatika</option>
-                                        <option>Manajemen Informatika</option>
-                                        <option>Komputerisasi Akuntansi</option>
+                                        <option <?php if($r['jurusan'] == "Sistem Informasi"){ echo "selected"; } ?> >Sistem Informasi</option>
+                                        <option <?php if($r['jurusan'] == "Teknik Informatika"){ echo "selected"; } ?>>Teknik Informatika</option>
+                                        <option <?php if($r['jurusan'] == "Manajemen Informatika"){ echo "selected"; } ?>>Manajemen Informatika</option>
+                                        <option <?php if($r['jurusan'] == "Komputerisasi Akuntansi"){ echo "selected"; } ?>>Komputerisasi Akuntansi</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Jenis Kelamin</label>
                                     <select name="jk" class="form-control">
-                                        <option>Laki-laki</option>
-                                        <option>Perempuan</option>
+                                        <option <?php if($r['jk'] == "Laki-laki"){ echo "selected"; } ?>>Laki-laki</option>
+                                        <option <?php if($r['jk'] == "Perempuan"){ echo "selected"; } ?>>Perempuan</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Alamat</label>
-                                    <input type="text" name="alamat" class="form-control" required>
+                                    <input type="text" name="alamat" value="<?= $r['alamat']; ?>" class="form-control" required>
                                 </div>
                                 <div class="form-group mt-2">
-                                    <button class="btn btn-primary" name="cetak">Simpan</button>
+                                    <button class="btn btn-primary" name="cetak">Update</button>
+                                    <a href="mahasiswa.php" class="btn btn-secondary">Kembali</a>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    
-                    <div class="card mt-2">
-                        <div class="card-header">Data Mahasiswa</div>
-                        <div class="card-body">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>NIM</th>
-                                        <th>Nama</th>
-                                        <th>Jurusan</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Alamat</th>
-                                        <th>#</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                        require_once 'config/koneksi.php';
-                                        $sql = mysqli_query($con, "SELECT * FROM mahasiswa");
-                                        while ($r = mysqli_fetch_array($sql)) {
-                    
-                                            echo "<tr>
-                                                    <td>$r[nim]</td>
-                                                    <td>$r[nama]</td>
-                                                    <td>$r[jurusan]</td>
-                                                    <td>$r[jk]</td>
-                                                    <td>$r[alamat]</td>
-                                                    <td>
-                                                        <a href='mahasiswa_edit.php?nim=$r[nim]' class='btn btn-sm btn-warning'>Edit</a>
-                                                        <a href='mahasiswa_hapus.php?nim=$r[nim]' onclick=\"return confirm('Hapus Data?')\" class='btn btn-sm btn-danger'>Hapus</a>
-                                                    </td>
-                                                </tr>";
-                                        }
-                                    ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
