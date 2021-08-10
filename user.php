@@ -1,3 +1,16 @@
+<?php  
+    session_start();
+    if (empty($_SESSION['websi4b_user'])) {
+        echo "<script>
+                alert('Silahkan login terlebih dahulu!');
+                window.location.href = 'login.php';
+            </script>";
+    }
+    else
+    {
+        $user = $_SESSION['websi4b_user'];
+        $level = $_SESSION['websi4b_level'];
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -16,21 +29,7 @@
         <div class="container-fluid p-0">
             <div class="row">
                 <div class="col-xl-12">
-                    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-                        <div class="container">
-                          <a class="navbar-brand" href="#">STIKOMAMBON</a>
-                          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                          </button>
-                          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                            <div class="navbar-nav">
-                              <a class="nav-link" aria-current="page" href="index.html">Home</a>
-                              <a class="nav-link" href="profil.html">Profil</a>
-                              <a class="nav-link active" href="kontak.html">Kontak</a>
-                            </div>
-                          </div>
-                        </div>
-                    </nav>
+                    <?php require_once 'config/menu.php'; ?>
                 </div>
             </div>
         </div>
@@ -93,7 +92,7 @@
                                                     <td>$no</td>
                                                     <td><img src='img/user/$r[foto]' width='75' class='img-thumbnail'></td>
                                                     <td>$r[username]</td>
-                                                    <td>$r[password]</td>
+                                                    <td>$r[level]</td>
                                                     <td>
                                                         <a class='btn btn-sm btn-warning'>Edit</a>
                                                         <a class='btn btn-sm btn-danger'>Hapus</a>
@@ -114,3 +113,4 @@
         <script src="js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
+<?php } ?>

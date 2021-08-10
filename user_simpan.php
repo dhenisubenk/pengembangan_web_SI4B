@@ -2,8 +2,11 @@
 	require_once 'config/koneksi.php';
 
 	$username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
-	$password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+	$pass = filter_var($_POST['password'], FILTER_SANITIZE_STRING); //admin
 	$level = filter_var($_POST['level'], FILTER_SANITIZE_STRING);
+	// 2 arah -> encrypt -> decrypt
+	// 1 arah -> hash
+	$password = password_hash($pass, PASSWORD_DEFAULT); //234huiy7a8st9842437928y1923h
 
 	$nama_file = $_FILES['foto']['name'];		//Gambar.PNG
 	$tipe_file = $_FILES['foto']['type'];		
